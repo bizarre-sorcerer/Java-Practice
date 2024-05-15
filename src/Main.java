@@ -15,13 +15,57 @@ public class Main {
 //                numbersMatrix[i][j] = i * j;
             }
         }
-        showMatrix(numbersMatrix);
 
     }
 
     // Числа
     public static boolean isEven(int num){
         return num % 2 == 0;
+    }
+
+    public static boolean isOrdinary(int num){
+        if (num > 1) {
+            for (int i = 2; i < num; i++) {
+                if (num % i == 0) {
+                    return false;
+                }
+            }
+        }
+        else {
+            return false;
+        }
+
+        return true;
+    }
+
+    public static int getFactorial(int num){
+        int result = 1;
+
+        for (int i=2; i<=num; i++){
+            result *= i;
+        }
+
+        return result;
+    }
+
+    // Строки
+    public static void vowelsCossonantsCount(String string){
+        String glasnye = "а и е ё о у ы э ю я";
+        String soglasnye = "б в г д ж з й к л м н п р с т ф х ц ч ш щ";
+        int glasnyeCount = 0;
+        int soglasnyeCount = 0;
+
+        for (String c: string.toLowerCase().split("")){
+            if (glasnye.contains(c)){
+                glasnyeCount++;
+            }
+            else if (soglasnye.contains(c)){
+                soglasnyeCount++;
+            }
+        }
+        System.out.println("Гласные: " + glasnyeCount);
+        System.out.println("Согласные: " + soglasnyeCount);
+
     }
 
     // Со списками/Массивами
@@ -94,6 +138,15 @@ public class Main {
         }
 
         return evenNumbers.stream().mapToInt(Integer::intValue).toArray();
+    }
+
+    public static int linearSearch(int[] nums ,int targetNum){
+        for (int i = 0; i < nums.length; i++){
+            if (nums[i] == targetNum){
+                return i;
+            }
+        }
+        return -1;  // Нету значит
     }
 
     // Матрицы
@@ -230,13 +283,10 @@ public class Main {
         System.out.println(maxInRows);
     }
 
-
-    //    [
-//    [1 2 3]
-//    [1 2 3]
-//    [1 2 3]
-//    ]
-
-
-
+//       [
+//          [1 2 3]
+//          [1 2 3]
+//          [1 2 3]
+//       ]
 }
+
