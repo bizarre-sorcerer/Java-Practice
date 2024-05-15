@@ -12,37 +12,19 @@ public class Main {
         for (int i = 0; i < numbersMatrix.length; i++){
             for (int j = 0; j < numbersMatrix[i].length; j++){
                 numbersMatrix[i][j] = j;
+//                numbersMatrix[i][j] = i * j;
             }
         }
+        showMatrix(numbersMatrix);
 
-//        System.out.println("Сумма чисел массива: " + Integer.toString(getSum(numbers)));  // 55
-//        System.out.println();
-//
-//        minAndMax(numbers);
-//        System.out.println();
-//
-//        arithmeticAverage(numbers);
-//        System.out.println();
-//
-//        System.out.println(contains(numbers, 2));
-//        System.out.println();
-//
-//        getIndex(numbers, 4);
-//        System.out.println();
-
-//        getSumMatrix(numbersMatrix);
-
-//        getRowSum(numbersMatrix);
-
-//        getColumnSum(numbersMatrix);
-
-//        transponateMatrix(numbersMatrix);
-
-//        minMaxMatrix(numbersMatrix);
-
-        arithmeticAverage(numbersMatrix);
     }
 
+    // Числа
+    public static boolean isEven(int num){
+        return num % 2 == 0;
+    }
+
+    // Со списками/Массивами
     public static int getSum(int[] nums){
         int sum = 0;
 
@@ -91,6 +73,34 @@ public class Main {
             }
         }
         System.out.println("В списке нет заданного значения");
+    }
+
+    public static void reverseMassiv(int[] nums){
+        List<Integer> reversedList = new ArrayList<>();
+
+        for (int i = nums.length-1; i >= 0; i--){
+            reversedList.add(numbers[i]);
+        }
+        System.out.println(reversedList);
+    }
+
+    public static int[] filterEven(int[] nums){
+        List<Integer> evenNumbers = new ArrayList<>();
+
+        for (int num: nums){
+            if (isEven(num)){
+                evenNumbers.add(num);
+            }
+        }
+
+        return evenNumbers.stream().mapToInt(Integer::intValue).toArray();
+    }
+
+    // Матрицы
+    public static void showMatrix(int[][] matrix){
+        for (int i = 0; i < matrix.length; i++) {
+            System.out.println(Arrays.toString(matrix[i]));
+        }
     }
 
     public static int getSumMatrix(int[][] matrix){
@@ -172,8 +182,56 @@ public class Main {
         System.out.println("Среднее арифметическое: " + sum/elementsCount);
     }
 
-//    public static void zeroSums()
-//    [
+    public static void zeroSums(int[][] matrix){
+        int count = 0;
+
+        for (int i = 0; i < matrix.length; i++){
+            for (int j = 0; j < matrix.length; j++){
+                if (matrix[i][j] == 0){
+                    count += 1;
+                }
+            }
+        }
+        System.out.println(count);
+    }
+
+    public static void interchangeRows(int[][] matrix, int targetIndex, int targetIndex2){
+        int[] tempMassiv = matrix[targetIndex];
+        matrix[targetIndex] = matrix[targetIndex2];
+        matrix[targetIndex2] = tempMassiv;
+
+        for (int i = 0; i < matrix.length; i++){
+            System.out.println(Arrays.toString(matrix[i]));
+        }
+    }
+
+    public static void maxRowMinCol(int[][] matrix){
+        List<Integer> maxInRows = new ArrayList<>();
+        List<Integer> minInCols = new ArrayList<>();
+
+        for (int i = 0; i < matrix.length; i++){
+            int maxRow = matrix[0][0];
+            int minCol = matrix[0][0];
+
+            if (matrix[i][0] < minCol){
+                minCol = matrix[i][0];
+            }
+            minInCols.add(minCol);
+
+            for (int j = 0; j < matrix.length; j++){
+                if (matrix[i][j] > maxRow){
+                    maxRow = matrix[i][j];
+                }
+            }
+            maxInRows.add(maxRow);
+        }
+
+        System.out.println(minInCols);
+        System.out.println(maxInRows);
+    }
+
+
+    //    [
 //    [1 2 3]
 //    [1 2 3]
 //    [1 2 3]
