@@ -16,6 +16,50 @@ public class Main {
             }
         }
 
+        MyArrayList elements = new MyArrayList();
+
+        for (int i=1; i<6; i++) {
+            elements.add(i);
+        }
+
+        for (int i=0; i<elements.collection.length; i++){
+            if (elements.collection[i] != null){
+                System.out.println(elements.collection[i]);
+            }
+        }
+
+        String[] strings = new String[]{
+                "asdf",
+                "qwerty",
+                ";lkj",
+        };
+
+//        System.out.println(elements.get("asdf"));
+//        System.out.println();
+//
+//        for (int i=0; i<elements.collection.length; i++){
+//            if (elements.collection[i] != null){
+//                System.out.println(elements.collection[i]);
+//            }
+//        }
+//
+//        elements.remove(2);
+//
+//        System.out.println();
+//
+//        for (int i=0; i<elements.collection.length; i++){
+//            if (elements.collection[i] != null){
+//                System.out.println(elements.collection[i]);
+//            }
+//        }
+
+//        elements.merge(strings);
+//
+//        for (int i=0; i<elements.collection.length; i++){
+//            if (elements.collection[i] != null){
+//                System.out.println(elements.collection[i]);
+//            }
+//        }
     }
 
     // Числа
