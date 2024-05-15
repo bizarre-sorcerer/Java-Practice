@@ -1,8 +1,3 @@
-import jdk.internal.util.ArraysSupport;
-
-import java.util.AbstractList;
-import java.util.Arrays;
-
 public class MyArrayList{
     int size = 0;
     Object[] collection = new Object[5];
@@ -22,7 +17,7 @@ public class MyArrayList{
         }
     }
 
-    public int get(Object targetElement){
+    public int getIndex(Object targetElement){
         for (int i = 0; i < collection.length; i++){
             if (collection[i] == targetElement){
                 return i;
@@ -40,9 +35,30 @@ public class MyArrayList{
         collection[size] = null;
     }
 
-    public void merge(Object[] massiv){
-        for (int i=0; i<massiv.length; i++){
-            add(massiv[i]);
+    public void merge(MyArrayList otherList){
+        for (int i = 0; i < otherList.size; i++) {
+            add(otherList.collection[i]);
         }
+    }
+
+    public boolean contains(Object targetObject){
+        for (int i=0; i<size; i++){
+            if (targetObject == collection[i]){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void removeDuplicates(){
+        MyArrayList uniqueCollection = new MyArrayList();
+
+        for (int i=0; i<size; i++){
+            if (!uniqueCollection.contains(collection[i])){
+                uniqueCollection.add(collection[i]);
+            }
+        }
+
+        collection = uniqueCollection.collection;
     }
 }

@@ -12,7 +12,6 @@ public class Main {
         for (int i = 0; i < numbersMatrix.length; i++){
             for (int j = 0; j < numbersMatrix[i].length; j++){
                 numbersMatrix[i][j] = j;
-//                numbersMatrix[i][j] = i * j;
             }
         }
 
@@ -22,44 +21,14 @@ public class Main {
             elements.add(i);
         }
 
+        elements.add(5);
+        elements.removeDuplicates();
+
         for (int i=0; i<elements.collection.length; i++){
             if (elements.collection[i] != null){
                 System.out.println(elements.collection[i]);
             }
         }
-
-        String[] strings = new String[]{
-                "asdf",
-                "qwerty",
-                ";lkj",
-        };
-
-//        System.out.println(elements.get("asdf"));
-//        System.out.println();
-//
-//        for (int i=0; i<elements.collection.length; i++){
-//            if (elements.collection[i] != null){
-//                System.out.println(elements.collection[i]);
-//            }
-//        }
-//
-//        elements.remove(2);
-//
-//        System.out.println();
-//
-//        for (int i=0; i<elements.collection.length; i++){
-//            if (elements.collection[i] != null){
-//                System.out.println(elements.collection[i]);
-//            }
-//        }
-
-//        elements.merge(strings);
-//
-//        for (int i=0; i<elements.collection.length; i++){
-//            if (elements.collection[i] != null){
-//                System.out.println(elements.collection[i]);
-//            }
-//        }
     }
 
     // Числа
