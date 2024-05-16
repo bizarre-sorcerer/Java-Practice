@@ -234,8 +234,6 @@ public class Main {
 //        });
     }
 
-
-
     // Матрицы
     public static void showMatrix(int[][] matrix){
         for (int i = 0; i < matrix.length; i++) {
