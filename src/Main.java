@@ -1,12 +1,19 @@
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static int[] numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    public static int[] numbers2 = {1, 223, 33, 4, 5, 26, 57, 8, 239, 10};
+
+    public static List<Integer> numbersList = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10));
+    public static List<Integer> numbersList2 = new ArrayList<>(Arrays.asList(1, 223, 33, 4, 5, 26, 57, 8, 239, 10));
+
     public static int[][] numbersMatrix = new int[6][6];
+
+    public static LinkedList<Integer> linkedList = new LinkedList<>();
+
+    public static HashMap<String, Integer> namesAges = new HashMap<>();
 
     public static void main(String[] args) {
         for (int i = 0; i < numbersMatrix.length; i++){
@@ -15,20 +22,18 @@ public class Main {
             }
         }
 
-        MyArrayList elements = new MyArrayList();
+    }
 
-        for (int i=1; i<6; i++) {
-            elements.add(i);
+    // linked list
+    public static void reverseLinkedList(LinkedList<Integer> linkedList){
+        if (linkedList.isEmpty() || linkedList.size() == 1) {
+            return;
         }
 
-        elements.add(5);
-        elements.removeDuplicates();
+//        ...
+//        ...
+//        ...
 
-        for (int i=0; i<elements.collection.length; i++){
-            if (elements.collection[i] != null){
-                System.out.println(elements.collection[i]);
-            }
-        }
     }
 
     // Числа
@@ -81,17 +86,7 @@ public class Main {
 
     }
 
-    // Со списками/Массивами
-    public static int getSum(int[] nums){
-        int sum = 0;
-
-        for (int i = 0; i < nums.length; i++){
-            sum += nums[i];
-        }
-
-        return sum;
-    }
-
+    // С массивами
     public static void minAndMax(int[] nums){
         int min = nums[0];
         int max = nums[0];
@@ -106,12 +101,6 @@ public class Main {
 
         System.out.println("Минимальное значение: " + Integer.toString(min));
         System.out.println("Максимальное значение: " + Integer.toString(max));
-    }
-
-    public static void arithmeticAverage(int[] nums){
-        int sum = getSum(nums);
-
-        System.out.println("Ариф. среднее: " + Integer.toString(sum/nums.length));
     }
 
     public static boolean contains(int[] nums, int targetNum){
@@ -161,6 +150,91 @@ public class Main {
         }
         return -1;  // Нету значит
     }
+
+    //  Списки
+    public static List<Integer> getIntersections(List<Integer> listA, List<Integer> listB){
+        List<Integer> intersection = new ArrayList<>();
+
+        for (int i = 0; i < listA.size(); i++){
+            if (listA.contains(listB.get(i))){
+                intersection.add(listB.get(i));
+            }
+        }
+
+        return intersection;
+    }
+
+    public static int[] listToMassiv(List<Integer> list){
+        int[] result = new int[list.size()];
+
+        for (int i=0; i<list.size(); i++){
+            result[i] = list.get(i);
+        }
+
+        return result;
+    }
+
+    public static boolean isSubset(List<Integer> list1, List<Integer> list2){
+        if (list1.containsAll(list2)) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    public static void minMax(List<Integer> list){
+        int min = list.get(0);
+        int max = list.get(0);
+
+        for (int i=0; i<list.size(); i++){
+            if (list.get(i)<min){
+                min = list.get(i);
+            }
+            else if (list.get(i)>max){
+                max = list.get(i);
+            }
+        }
+
+        System.out.println("min: " + Integer.toString(min));
+        System.out.println("max: " + Integer.toString(max));
+    }
+
+    public static void deleteEven(List<Integer> list){
+        for (int i=0; i<list.size(); i++){
+            if (list.get(i)%2==0){
+                list.remove(i);
+            }
+        }
+    }
+
+    public static int getSum(List<Integer> nums){
+        int sum = 0;
+
+        for (int i = 0; i < nums.size(); i++){
+            sum += nums.get(i);
+        }
+
+        return sum;
+    }
+
+    public static void arithmeticAverage(List<Integer> nums){
+        int sum = getSum(nums);
+
+        System.out.println("Ариф. среднее: " + Integer.toString(sum/nums.size()));
+    }
+
+    public static void copy(List<Integer> list1, List<Integer> list2){
+        for (int i=0; i<list2.size(); i++){
+            list1.add(list2.get(i));
+        }
+
+//        list1.forEach(list ->{
+//            list.
+//        });
+    }
+
+
 
     // Матрицы
     public static void showMatrix(int[][] matrix){
